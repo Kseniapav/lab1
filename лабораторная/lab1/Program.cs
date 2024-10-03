@@ -10,6 +10,9 @@ namespace lab1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("я уже устала");
+            Console.ReadKey();
         }
+      
     }
 }
