@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace lab1
 {
-    internal class Program
+    internal enum Косметика
     {
-        static void Main(string[] args)
-        {
-            
-        }
-      
+        Тональные_крема = 1,
+        Помады,
+        Тушь,
+        Румяна
     }
 }
