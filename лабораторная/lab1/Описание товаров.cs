@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,22 +10,18 @@ namespace lab1
 {
     internal class Описание_Товара
     {
-        private string Name;
-        private double Prise;
+        public string Name { get; set; }
+        public double Price { get; set; }
 
         //конструктор
         public Описание_Товара(string Название,double Цена)
         {
             Название = Name;
-            Цена = Prise;
+            Цена = Price;
         }
-        public string Скажи_Название()
+        public override string ToString() // Переопределяем метод ToString() для более удобного вывода информации об объекте
         {
-            return Name;
-        }
-        public double Скажи_стоимость()
-        {
-            return Prise;
+            return $"Название: {Name}, Цена: {Price:F2}"; // :F2 - форматирование, чтобы показать 2 знака после запятой
         }
 
 
