@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace lab1
 {
-    public struct Запись_о_продаже
+    public struct RecordOfSale
     {
         private int Количество;
         private int День;
-        private Описание_Товара Товар;
+        private ProductDescription Товар;
     }
 }

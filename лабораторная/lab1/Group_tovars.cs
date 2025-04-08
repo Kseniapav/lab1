@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ЛР2
 {
-    internal enum Косметика
+    internal enum Cosmetics
     {
         Тональные_крема = 1,
         Помады,
         Тушь,
-        Румяна
+        Румяна,
+        Хайлайтеры,
+        Скульпторы
     }
 }

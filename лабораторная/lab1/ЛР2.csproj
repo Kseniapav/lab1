@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="История_продаж.cs" />
-    <Compile Include="Группы Товаров.cs" />
-    <Compile Include="Описание товаров.cs" />
-    <Compile Include="Запись о продаже.cs" />
+    <Compile Include="SalesHistory.cs" />
+    <Compile Include="Group_tovars.cs" />
+    <Compile Include="ProductDescription.cs" />
+    <Compile Include="RecordOfSale.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
