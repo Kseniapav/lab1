@@ -14,23 +14,54 @@ namespace lab1
             var историяПродаж = new SalesHistory();
 
             // Создание описаний товаров
-            var товары = new Dictionary<Cosmetics, ProductDescription>
+
+
+            var q = new ProductDescription("Тональный крем L'Oreal True Match", 400);
+            var w = new ProductDescription("Тональный крем Maybelline Fit Me", 300);
+            var e = new ProductDescription("Помада Maybelline SuperStay", 540);
+            var r = new ProductDescription("Помада NYX Soft Matte", 1200); 
+            var t = new ProductDescription("Румяна MAC Powder Blush", 230) ;
+            var y = new ProductDescription("Румяна Bourjois Little Round Pot", 670);
+            var u = new ProductDescription("Хайлайтер Fenty Beauty Killawatt", 1099);
+            var i = new ProductDescription("Хайлайтер Revolution Reloaded", 890);
+            var o = new ProductDescription("Скульптор для лица NYX Highlight & Contour", 700);
+            var p = new ProductDescription("Скульптор KVD Beauty Shade + Light", 500);
+            var a = new ProductDescription("Тушь для ресниц Rimmel Extra Super Lash", 670);
+            var s = new ProductDescription("Тушь Maybelline Lash Sensational", 999);
+
+
+
+
+
+            var record = new SalesHistory();
+
+            // Добавляем продажи
+            record.ДобавитьПродажу(Cosmetics.Тональные_крема, new RecordOfSale(4, 12, q));
+            record.ДобавитьПродажу(Cosmetics.Помады, new RecordOfSale(1, 16, r));
+            record.ДобавитьПродажу(Cosmetics.Тушь, new RecordOfSale(5, 17, a));
+            record.ДобавитьПродажу(Cosmetics.Хайлайтеры, new RecordOfSale(1, 18, i));
+            record.ДобавитьПродажу(Cosmetics.Помады, new RecordOfSale(1, 18, e));
+
+            Console.WriteLine("____ОТЧЕТ О ПРОДАЖАХ____");
+            foreach (Cosmetics категория in Enum.GetValues(typeof(Cosmetics)))
             {
-               { Cosmetics.Тональные_крема, new ProductDescription("Тональный крем L'Oreal True Match", 25.99) },
-               { Cosmetics.Тональные_крема, new ProductDescription("Тональный крем Maybelline Fit Me", 18.50) },
-               { Cosmetics.Помады, new ProductDescription("Помада Maybelline SuperStay", 15.50) },
-               { Cosmetics.Помады, new ProductDescription("Помада NYX Soft Matte", 9.99) },
-               { Cosmetics.Румяна, new ProductDescription("Румяна MAC Powder Blush", 22.00) },
-               { Cosmetics.Румяна, new ProductDescription("Румяна Bourjois Little Round Pot", 12.50) },
-               { Cosmetics.Хайлайтеры, new ProductDescription("Хайлайтер Fenty Beauty Killawatt", 32.00) },
-               { Cosmetics.Хайлайтеры, new ProductDescription("Хайлайтер Revolution Reloaded", 8.99) },
-               { Cosmetics.Скульпторы, new ProductDescription("Скульптор для лица NYX Highlight & Contour", 16.75) },
-               { Cosmetics.Скульпторы, new ProductDescription("Скульптор KVD Beauty Shade + Light", 28.00) },
-               { Cosmetics.Тушь, new ProductDescription("Тушь для ресниц Rimmel Extra Super Lash", 12.75) },
-               { Cosmetics.Тушь, new ProductDescription("Тушь Maybelline Lash Sensational", 10.99) }
+                var продажи = record.ПолучитьПродажи(категория);
+                if (продажи.Count > 0)
+                {
+                    Console.WriteLine($"\nКатегория: {категория}");
+                    foreach (var продажа in продажи)
+                    {
+                        Console.WriteLine($"- {продажа.ПолучитьТовар().ПолучитьНазвание()}, " +
+                                        $"{продажа.ПолучитьКоличество()} шт., " +
+                                        $"день {продажа.ПолучитьДень()}, " +
+                                        $"сумма: {продажа.ПолучитьСумму():N2} руб.");
+                    }
+                    Console.WriteLine($"Итого по категории: {record.ПолучитьСуммуПоКатегории(категория):N2} руб.");
+                }
+            }
 
-
-            };
+            Console.WriteLine("\nНажмите любую клавишу для выхода...");
+            Console.ReadKey();
         }
 
           

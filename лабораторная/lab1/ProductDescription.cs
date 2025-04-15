@@ -26,7 +26,8 @@ namespace lab1
             return $"Название: {Name}, Цена: {Price:F2}";
         }
 
-
+        public string ПолучитьНазвание() => Name;
+        public double ПолучитьЦену() => Price;
 
     }
 }
